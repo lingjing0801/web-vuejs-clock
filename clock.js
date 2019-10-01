@@ -1,0 +1,22 @@
+var clock = new Vue ({
+    el:'#time',
+    data:{
+        hour:'',
+        minute:'',
+        second:''
+    },
+    methods:{
+        // 自訂方法:設定時間
+        setClock(){
+            // 新增一個日期物件放在date
+            var date = new Date();
+            this.hour = date.getHours();
+            this.minute = date.getMinutes();
+            this.second = date.getSeconds()
+        }   
+    },
+    // 執行:會在所有元素顯示後執行
+    mounted(){
+        setInterval(this.setClock,1000);
+    }
+})
